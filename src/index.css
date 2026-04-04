@@ -1,0 +1,62 @@
+/* Clean slate for the portfolio */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #121213;
+  color: #d6d6d6;
+  overflow-x: hidden;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+main {
+  display: flex;
+  gap: 25px;
+  width: 100%;
+  max-width: 1200px;
+  padding-top: 80px;
+}
+
+.main-content {
+  flex-grow: 1;
+  position: relative;
+}
+
+.scroll-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.scroll-container section {
+  scroll-margin-top: 120px;
+}
+
+@media (max-width: 1024px) {
+  main {
+    flex-direction: column;
+    padding-top: 80px;
+  }
+  
+  .scroll-container section {
+    scroll-margin-top: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    padding-top: 70px;
+  }
+}
