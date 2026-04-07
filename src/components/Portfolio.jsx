@@ -29,22 +29,7 @@ const Portfolio = ({ onProjectSelect }) => {
         start: 'top 80%',
       },
     });
-
-    const projectItems = projectListRef.current?.querySelectorAll('.project-item') || [];
-    gsap.from(projectItems, {
-      y: 100,
-      opacity: 0,
-      scale: 0.8,
-      duration: 0.8,
-      stagger: 0.1,
-      ease: 'back.out(1.4)',
-      scrollTrigger: {
-        trigger: projectListRef.current,
-        scroller: '.world-front',
-        start: 'top 80%',
-      },
-    });
-  }, { dependencies: [], revertOnUpdate: true }); // No scope to allow scroller: .world-front
+  }, { dependencies: [], revertOnUpdate: true });
 
   useGSAP(() => {
     const items = projectListRef.current?.querySelectorAll('.project-item');

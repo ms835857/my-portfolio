@@ -110,12 +110,30 @@ const ProjectDetailView = ({ project, onReturn }) => {
 
         <section className="cinematic-section">
           <span className="section-label">The Challenge</span>
-          <p className="section-text-large">{project.challenge}</p>
+          {project.challenge?.paragraphs?.map((para, i) => (
+            <p key={i} className="section-text-large" style={{ marginBottom: '16px' }}>{para}</p>
+          ))}
+          {project.challenge?.bullets && (
+            <ul className="detail-bullets">
+              {project.challenge.bullets.map((bullet, i) => (
+                <li key={i}>{bullet}</li>
+              ))}
+            </ul>
+          )}
         </section>
 
         <section className="cinematic-section">
           <span className="section-label">The Solution</span>
-          <p className="section-text-large">{project.solution}</p>
+          {project.solution?.paragraphs?.map((para, i) => (
+            <p key={i} className="section-text-large" style={{ marginBottom: '16px' }}>{para}</p>
+          ))}
+          {project.solution?.bullets && (
+            <ul className="detail-bullets">
+              {project.solution.bullets.map((bullet, i) => (
+                <li key={i}>{bullet}</li>
+              ))}
+            </ul>
+          )}
         </section>
 
         {project.keyFeatures && (

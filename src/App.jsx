@@ -62,9 +62,9 @@ function App() {
     if (worldRef.current) {
       gsap.to(worldRef.current, {
         rotationY: isFlipped ? 180 : 0,
-        z: -600, // Maintains the global sphere origin
-        duration: 2.2,
-        ease: 'power2.inOut',
+        z: -600,
+        duration: 1.0,
+        ease: 'power3.out',
         onComplete: () => {
           ScrollTrigger.refresh();
         }
@@ -106,12 +106,14 @@ function App() {
 
           {/* Back Side */}
           <div className="world-side world-back">
-            <Navbar 
-              activeSection="portfolio" 
-              onLinkClick={handleReturn} 
-            />
+            <BackButton onClick={handleReturn} />
             <main>
-              <Sidebar />
+              <Sidebar 
+                isProjectMode={true}
+                projects={projects}
+                activeProjectIndex={selectedProjectIndex}
+                onProjectSelect={setSelectedProjectIndex}
+              />
               <div className="main-content">
                 <ProjectDetailView 
                   project={projects[selectedProjectIndex]} 

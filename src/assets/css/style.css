@@ -372,6 +372,9 @@ main {
   font-weight: var(--fw-500);
   letter-spacing: -0.25px;
   margin-bottom: 10px;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .info-content .title {
@@ -1938,8 +1941,11 @@ main {
   }
 
   .info-content .name {
-    white-space: nowrap;
+    white-space: normal;
     text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   .info-content .title {

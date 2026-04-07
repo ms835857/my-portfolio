@@ -534,10 +534,14 @@ article,
 
 /* Floating Action Button (Back) */
 .back-button-fab {
-  position: fixed;
+  position: absolute;
   top: 30px;
   left: 30px;
-  z-index: 2000;
+  z-index: 50;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: max-content;
+  height: max-content;
   background: rgba(18, 18, 19, 0.4);
   backdrop-filter: blur(15px);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -815,4 +819,79 @@ article,
     flex-direction: column;
     gap: 10px;
   }
+}
+
+/* ========================================================================= 
+   PROJECT-SPECIFIC SIDEBAR
+   ========================================================================= */
+
+.project-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.project-nav-item {
+  width: 100%;
+}
+
+.project-nav-item button {
+  width: 100%;
+  padding: 12px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  transition: all 0.3s ease;
+  text-align: left;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.project-nav-item:hover button {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.project-nav-item.active button {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: var(--orange-yellow-crayola);
+  color: var(--orange-yellow-crayola);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.15);
+}
+
+.avatar-box.project-avatar {
+  background: none;
+  overflow: hidden;
+}
+
+.avatar-box.project-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+}
+
+.detail-bullets li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 10px;
+  color: var(--light-gray);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.detail-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--orange-yellow-crayola);
 }
