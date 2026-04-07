@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,68 +13,76 @@ const About = () => {
   const testimonialsRef = useRef(null);
   const clientsRef = useRef(null);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 80%',
-          end: 'top 20%',
-          toggleActions: 'play none none reverse',
-        },
-      });
+  useGSAP(() => {
+    if (!containerRef.current) return;
 
-      tl.from(titleRef.current, {
-        y: -50,
-        opacity: 0,
-        scale: 0.9,
-        duration: 1,
-        ease: 'power3.out',
-      })
-      .from(textRef.current?.querySelectorAll('p') || [], {
-        y: 40,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.3,
-        ease: 'power3.out',
-      }, '-=0.5')
-      .from(servicesRef.current?.querySelectorAll('.service-item') || [], {
-        y: 60,
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'back.out(1.4)',
-      }, '-=0.4');
+    gsap.from(titleRef.current, {
+      y: -50,
+      opacity: 0,
+      scale: 0.9,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: containerRef.current,
+        scroller: '.world-front',
+        start: 'top 80%',
+      },
+    });
 
-      gsap.from(testimonialsRef.current?.querySelectorAll('.testimonials-item') || [], {
-        x: -100,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: testimonialsRef.current,
-          start: 'top 80%',
-        },
-      });
+    gsap.from(textRef.current?.querySelectorAll('p') || [], {
+      y: 40,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.3,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: textRef.current,
+        scroller: '.world-front',
+        start: 'top 80%',
+      },
+    });
 
-      gsap.from(clientsRef.current?.querySelectorAll('.clients-item') || [], {
-        scale: 0,
-        opacity: 0,
-        rotation: -10,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'back.out(2)',
-        scrollTrigger: {
-          trigger: clientsRef.current,
-          start: 'top 80%',
-        },
-      });
-    }, containerRef);
+    gsap.from(servicesRef.current?.querySelectorAll('.service-item') || [], {
+      y: 60,
+      opacity: 0,
+      scale: 0.8,
+      duration: 0.6,
+      stagger: 0.15,
+      ease: 'back.out(1.4)',
+      scrollTrigger: {
+        trigger: servicesRef.current,
+        scroller: '.world-front',
+        start: 'top 80%',
+      },
+    });
 
-    return () => ctx.revert();
-  }, []);
+    gsap.from(testimonialsRef.current?.querySelectorAll('.testimonials-item') || [], {
+      x: -100,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: testimonialsRef.current,
+        scroller: '.world-front',
+        start: 'top 80%',
+      },
+    });
+
+    gsap.from(clientsRef.current?.querySelectorAll('.clients-item') || [], {
+      scale: 0,
+      opacity: 0,
+      rotation: -10,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'back.out(2)',
+      scrollTrigger: {
+        trigger: clientsRef.current,
+        scroller: '.world-front',
+        start: 'top 80%',
+      },
+    });
+  }, { dependencies: [], revertOnUpdate: true }); // No scope here to allow targeting parent .world-front
 
   const services = [
     { title: 'Web design', text: 'The most modern and high quality design made at a professional level.', icon: './assets/images/icon-design.svg' },

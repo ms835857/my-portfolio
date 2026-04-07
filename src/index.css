@@ -12,6 +12,10 @@ body {
   overflow-x: hidden;
 }
 
+p, span, li, h1, h2, h3, h4, h5, .service-item-text, .timeline-text {
+  color: #d6d6d6 !important;
+}
+
 #root {
   display: flex;
   justify-content: center;

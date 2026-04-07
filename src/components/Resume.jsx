@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,67 +10,67 @@ const Resume = () => {
   const titleRef = useRef(null);
   const skillFillRefs = useRef([]);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(titleRef.current, {
-        y: -50,
-        opacity: 0,
-        scale: 0.9,
-        duration: 1,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: 'top 80%',
-        },
-      });
+  useGSAP(() => {
+    gsap.from(titleRef.current, {
+      y: -50,
+      opacity: 0,
+      scale: 0.9,
+      duration: 1,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: containerRef.current,
+        scroller: '.world-front',
+        start: 'top 80%',
+      },
+    });
 
-      gsap.from('.timeline-item', {
-        x: -100,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: '.timeline',
-          start: 'top 75%',
-        },
-      });
+    gsap.from('.timeline-item', {
+      x: -100,
+      opacity: 0,
+      duration: 0.8,
+      stagger: 0.2,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.timeline',
+        scroller: '.world-front',
+        start: 'top 75%',
+      },
+    });
 
-      skillFillRefs.current.forEach((fill, index) => {
-        if (fill) {
-          const targetWidth = fill.getAttribute('data-width');
-          gsap.fromTo(fill, 
-            { width: '0%' },
-            {
-              width: targetWidth,
-              duration: 1.2,
-              delay: index * 0.15,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: fill,
-                start: 'top 85%',
-              },
-            }
-          );
-        }
-      });
+    skillFillRefs.current.forEach((fill, index) => {
+      if (fill) {
+        const targetWidth = fill.getAttribute('data-width');
+        gsap.fromTo(fill, 
+          { width: '0%' },
+          {
+            width: targetWidth,
+            duration: 1.2,
+            delay: index * 0.15,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: fill,
+              scroller: '.world-front',
+              start: 'top 85%',
+            },
+          }
+        );
+      }
+    });
 
-      gsap.from('.skills-item', {
-        y: 50,
-        scale: 0.8,
-        opacity: 0,
-        duration: 0.6,
-        stagger: 0.15,
-        ease: 'back.out(1.4)',
-        scrollTrigger: {
-          trigger: '.skill',
-          start: 'top 75%',
-        },
-      });
-    }, containerRef);
-
-    return () => ctx.revert();
-  }, []);
+    gsap.from('.skills-item', {
+      y: 50,
+      scale: 0.8,
+      opacity: 0,
+      duration: 0.6,
+      stagger: 0.15,
+      ease: 'back.out(1.4)',
+      scrollTrigger: {
+        trigger: '.skill',
+        scroller: '.world-front',
+        start: 'top 75%',
+      },
+    });
+  }, { dependencies: [], revertOnUpdate: true }); // No scope here to allow targeting parent .world-front
 
   const education = [
     { title: 'Air University Islamabad', duration: '2024 — ongoing', text: 'Studying Computer Science in Air University Islamabad, developing my skills in programming, software development, and web technologies.' },

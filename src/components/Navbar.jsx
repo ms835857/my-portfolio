@@ -1,9 +1,12 @@
 import React from 'react';
 
-const Navbar = ({ activeSection }) => {
+const Navbar = ({ activeSection, onLinkClick }) => {
   const sections = ['About', 'Resume', 'Portfolio', 'Contact'];
 
   const scrollToSection = (section) => {
+    if (onLinkClick) {
+      onLinkClick(section.toLowerCase());
+    }
     const element = document.getElementById(section.toLowerCase());
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });

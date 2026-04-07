@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import About from './components/About';
@@ -6,33 +6,42 @@ import Resume from './components/Resume';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import ThreeBackground from './components/ThreeBackground';
+import ProjectDetailView from './components/ProjectDetailView';
+import ProjectNavbar from './components/ProjectNavbar';
+import BackButton from './components/BackButton';
+import { projects } from './constants/projects';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
 import { useGSAP } from '@gsap/react';
 
-gsap.registerPlugin(ScrollTrigger);
-
 function App() {
   const [activeSection, setActiveSection] = useState('about');
+  const [isFlipped, setIsFlipped] = useState(false);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+  const worldRef = useRef(null);
+
+  // Register plugins once
+  useGSAP(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  }, { dependencies: [] });
 
   useGSAP(() => {
+    if (isFlipped || !worldRef.current) return;
+
     const sections = ['about', 'resume', 'portfolio', 'contact'];
-    
     sections.forEach((section) => {
-      const element = document.getElementById(section);
-      if (element) {
-        ScrollTrigger.create({
-          trigger: element,
-          start: 'top center',
-          end: 'bottom center',
-          onEnter: () => setActiveSection(section),
-          onEnterBack: () => setActiveSection(section),
-        });
-      }
+      ScrollTrigger.create({
+        trigger: `#${section}`,
+        scroller: ".world-front",
+        start: 'top center',
+        end: 'bottom center',
+        onEnter: () => setActiveSection(section),
+        onEnterBack: () => setActiveSection(section),
+      });
     });
 
-    gsap.from('main', {
+    gsap.from('.world-front main', {
       opacity: 0,
       y: 50,
       duration: 1,
@@ -47,23 +56,72 @@ function App() {
       ease: 'power3.out',
       delay: 0.5
     });
-  });
+  }, { scope: worldRef, dependencies: [isFlipped] });
+
+  useGSAP(() => {
+    if (worldRef.current) {
+      gsap.to(worldRef.current, {
+        rotationY: isFlipped ? 180 : 0,
+        z: -600, // Maintains the global sphere origin
+        duration: 2.2,
+        ease: 'power2.inOut',
+        onComplete: () => {
+          ScrollTrigger.refresh();
+        }
+      });
+    }
+  }, [isFlipped]);
+
+  const handleProjectSelect = (index) => {
+    setSelectedProjectIndex(index);
+    setIsFlipped(true);
+  };
+
+  const handleReturn = () => {
+    setIsFlipped(false);
+  };
 
   return (
     <>
       <ThreeBackground />
-      <Navbar activeSection={activeSection} />
-      <main>
-        <Sidebar />
-        <div className="main-content">
-          <div className="scroll-container">
-            <section id="about"><About /></section>
-            <section id="resume"><Resume /></section>
-            <section id="portfolio"><Portfolio /></section>
-            <section id="contact"><Contact /></section>
+      <div className="global-scene">
+        <div className={`global-world ${isFlipped ? 'is-flipped' : ''}`} ref={worldRef}>
+          {/* Front Side */}
+          <div className="world-side world-front">
+            <Navbar activeSection={activeSection} />
+            <main>
+              <Sidebar />
+              <div className="main-content">
+                <div className="scroll-container">
+                  <section id="about"><About /></section>
+                  <section id="resume"><Resume /></section>
+                  <section id="portfolio">
+                    <Portfolio onProjectSelect={handleProjectSelect} />
+                  </section>
+                  <section id="contact"><Contact /></section>
+                </div>
+              </div>
+            </main>
+          </div>
+
+          {/* Back Side */}
+          <div className="world-side world-back">
+            <Navbar 
+              activeSection="portfolio" 
+              onLinkClick={handleReturn} 
+            />
+            <main>
+              <Sidebar />
+              <div className="main-content">
+                <ProjectDetailView 
+                  project={projects[selectedProjectIndex]} 
+                  onReturn={handleReturn} 
+                />
+              </div>
+            </main>
           </div>
         </div>
-      </main>
+      </div>
     </>
   );
 }
