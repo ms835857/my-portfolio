@@ -21,7 +21,7 @@ const Contact = () => {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: containerRef.current,
-        scroller: '.world-front',
+        scroller: '.side-content',
         start: 'top 80%',
       },
     });
@@ -35,7 +35,7 @@ const Contact = () => {
       ease: 'back.out(1.4)',
       scrollTrigger: {
         trigger: formRef.current,
-        scroller: '.world-front',
+        scroller: '.side-content',
         start: 'top 80%',
       },
     });

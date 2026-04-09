@@ -25,7 +25,7 @@ const Portfolio = ({ onProjectSelect }) => {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: containerRef.current,
-        scroller: '.world-front',
+        scroller: '.side-content',
         start: 'top 80%',
       },
     });

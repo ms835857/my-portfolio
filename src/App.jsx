@@ -13,6 +13,7 @@ import { projects } from './constants/projects';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
+import './assets/css/back-button.css';
 import { useGSAP } from '@gsap/react';
 
 function App() {
@@ -33,7 +34,7 @@ function App() {
     sections.forEach((section) => {
       ScrollTrigger.create({
         trigger: `#${section}`,
-        scroller: ".world-front",
+        scroller: ".world-front .side-content",
         start: 'top center',
         end: 'bottom center',
         onEnter: () => setActiveSection(section),
@@ -89,38 +90,42 @@ function App() {
           {/* Front Side */}
           <div className="world-side world-front">
             <Navbar activeSection={activeSection} />
-            <main>
-              <Sidebar />
-              <div className="main-content">
-                <div className="scroll-container">
-                  <section id="about"><About /></section>
-                  <section id="resume"><Resume /></section>
-                  <section id="portfolio">
-                    <Portfolio onProjectSelect={handleProjectSelect} />
-                  </section>
-                  <section id="contact"><Contact /></section>
+            <div className="side-content">
+              <main>
+                <Sidebar />
+                <div className="main-content">
+                  <div className="scroll-container">
+                    <section id="about"><About /></section>
+                    <section id="resume"><Resume /></section>
+                    <section id="portfolio">
+                      <Portfolio onProjectSelect={handleProjectSelect} />
+                    </section>
+                    <section id="contact"><Contact /></section>
+                  </div>
                 </div>
-              </div>
-            </main>
+              </main>
+            </div>
           </div>
 
           {/* Back Side */}
           <div className="world-side world-back">
             <BackButton onClick={handleReturn} />
-            <main>
-              <Sidebar 
-                isProjectMode={true}
-                projects={projects}
-                activeProjectIndex={selectedProjectIndex}
-                onProjectSelect={setSelectedProjectIndex}
-              />
-              <div className="main-content">
-                <ProjectDetailView 
-                  project={projects[selectedProjectIndex]} 
-                  onReturn={handleReturn} 
+            <div className="side-content">
+              <main>
+                <Sidebar 
+                  isProjectMode={true}
+                  projects={projects}
+                  activeProjectIndex={selectedProjectIndex}
+                  onProjectSelect={setSelectedProjectIndex}
                 />
-              </div>
-            </main>
+                <div className="main-content">
+                  <ProjectDetailView 
+                    project={projects[selectedProjectIndex]} 
+                    onReturn={handleReturn} 
+                  />
+                </div>
+              </main>
+            </div>
           </div>
         </div>
       </div>

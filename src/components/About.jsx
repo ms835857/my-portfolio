@@ -24,7 +24,7 @@ const About = () => {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: containerRef.current,
-        scroller: '.world-front',
+        scroller: '.side-content',
         start: 'top 80%',
       },
     });
@@ -37,7 +37,7 @@ const About = () => {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: textRef.current,
-        scroller: '.world-front',
+        scroller: '.side-content',
         start: 'top 80%',
       },
     });
@@ -51,7 +51,7 @@ const About = () => {
       ease: 'back.out(1.4)',
       scrollTrigger: {
         trigger: servicesRef.current,
-        scroller: '.world-front',
+        scroller: '.side-content',
         start: 'top 80%',
       },
     });
@@ -64,7 +64,7 @@ const About = () => {
       ease: 'power3.out',
       scrollTrigger: {
         trigger: testimonialsRef.current,
-        scroller: '.world-front',
+        scroller: '.side-content',
         start: 'top 80%',
       },
     });
@@ -78,7 +78,7 @@ const About = () => {
       ease: 'back.out(2)',
       scrollTrigger: {
         trigger: clientsRef.current,
-        scroller: '.world-front',
+        scroller: '.side-content',
         start: 'top 80%',
       },
     });

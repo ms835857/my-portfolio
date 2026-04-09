@@ -2,7 +2,7 @@ export const projects = [
   {
     title: 'Anime & Movie Streaming',
     category: 'university projects',
-    img: './assets/images/project-2.png',
+    img: './assets/images/animethumbnail.png',
     media: [
       './assets/images/animeverse1.png',
       './assets/images/animeverse2.png'
@@ -53,8 +53,12 @@ export const projects = [
     role: 'Algorithm Developer',
     timeline: '6+ Months',
     description: 'Personal Project - Python trading bot for GOLD',
-    challenge: 'The XAUUSD (Gold) market is highly volatile, requiring split-second decision-making and strict emotional discipline—factors that human traders frequently struggle to maintain.',
-    solution: 'Engineered an automated quantitative trading solution optimized specifically for XAUUSD. The bot utilizes complex trend-following algorithms and technical indicators to execute trades autonomously.',
+    challenge: {
+      paragraphs: ['Trading XAUUSD (Gold) requires navigating a complex landscape where global macroeconomic shifts and sudden geopolitical tensions trigger intense liquidity spikes and sharp reversals. For many traders, the challenge is twofold: managing the inherent risk of golds high-leverage movements and maintaining a neutral perspective when market sentiment becomes erratic, which often leads to over-trading or holding losing positions for too long.']
+    },
+    solution: {
+      paragraphs: ['This bot overcomes these obstacles by implementing a data-driven strategy that prioritizes capital preservation and precision. Using Python-based automation, it monitors key price levels and volume indicators to capitalize on specific intraday trends without the interference of human emotion. By automating the entry and exit process, the bot ensures that every trade is backed by backtested logic and protected by rigorous, automated risk-management layers designed to handle Golds unique volatility.']
+    },
     keyFeatures: [
       'MetaTrader 5 Native Integration',
       'Dynamic Stop-Loss and Take-Profit Adjustments',
@@ -62,10 +66,10 @@ export const projects = [
       'Comprehensive Risk Management protocols'
     ],
     techStack: ['Python', 'MetaTrader 5', 'Pandas', 'NumPy'],
-    links: { live: '#', github: '#' }
+    links: { live: '', github: '' }
   },
   {
-    title: 'Forex Trading Bot',
+    title: 'USTEC Trading Bot',
     category: 'personal projects',
     img: './assets/images/project-4.png',
     media: [
@@ -74,16 +78,19 @@ export const projects = [
     badge: 'Ongoing',
     role: 'Quantitative Developer',
     timeline: '8+ Months',
-    description: 'Personal Project - Python trading bot for Forex',
-    challenge: 'Managing positions across multiple currency pairs simultaneously is mathematically intensive and practically impossible for manual retail traders.',
-    solution: 'Built a highly versatile, multi-currency Forex Bot with a modular architecture. It supports rapid backtesting of strategies and executes concurrent trades across varying assets based on statistical weighting.',
+    description: 'Personal Project - Python trading bot for USTEC',
+    challenge: {
+      paragraphs: ['Navigating the high volatility and rapid price fluctuations of the Nasdaq 100 (USTEC) presents a significant hurdle for manual traders, often leading to emotional decision-making and delayed execution. The primary difficulty lies in filtering market noise to identify high-probability trend reversals and momentum shifts within a fast-paced environment where traditional indicators often lag.']
+    },
+    solution: {
+      paragraphs: ['To address these inefficiencies, this bot utilizes a systematic approach built on Python, integrating real-time data analysis with disciplined risk management protocols. By executing trades based on objective algorithmic triggers, the solution eliminates psychological bias and ensures lightning-fast execution, allowing for consistent participation in market moves while strictly adhering to predefined stop-loss and take-profit parameters.']
+    },
     keyFeatures: [
-      'Multi-currency processing concurrently',
       'Historical Data Backtesting Engine',
       'Statistical Arbitrage Identification',
       'MQL5 Bridge integration for rapid execution'
     ],
     techStack: ['Python', 'MQL5', 'Data Science', 'Automation'],
-    links: { live: '#', github: '#' }
+    links: { live: '', github: 'https://github.com/ms835857/ustec-bot' }
   }
 ];

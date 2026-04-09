@@ -25,18 +25,18 @@ const ProjectDetailView = ({ project, onReturn }) => {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: section,
-            scroller: ".world-back",
+            scroller: ".side-content",
             start: 'top 85%',
             toggleActions: 'play none none reverse', // Fades back out when scrolling up
           }
         }
       );
     });
-  }, { dependencies: [project], revertOnUpdate: true }); // No scope to allow scroller: .world-back
+  }, { dependencies: [project], revertOnUpdate: true }); // No scope to allow scroller: .side-content
 
   // Gestalt Swipe / Rapid Scroll detection
   const handleWheel = (e) => {
-    const scroller = e.currentTarget.closest('.world-back');
+    const scroller = e.currentTarget.closest('.side-content');
     if (scroller && scroller.scrollTop <= 0 && e.deltaY < -50) {
       onReturn();
     }
@@ -48,7 +48,7 @@ const ProjectDetailView = ({ project, onReturn }) => {
 
   const handleTouchEnd = (e) => {
     const touchEndY = e.changedTouches[0].clientY;
-    const scroller = e.currentTarget.closest('.world-back');
+    const scroller = e.currentTarget.closest('.side-content');
     if (scroller && scroller.scrollTop <= 0 && touchEndY - touchStartY.current > 100) {
       onReturn();
     }
@@ -160,12 +160,16 @@ const ProjectDetailView = ({ project, onReturn }) => {
 
         <section className="cinematic-section" style={{ textAlign: 'center', marginTop: '40px' }}>
           <div className="detail-links" style={{ justifyContent: 'center', gap: '20px' }}>
-            <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="btn-link large" style={{ padding: '15px 30px', borderRadius: '30px' }}>
-              <ion-icon name="globe-outline"></ion-icon> Live Demo
-            </a>
-            <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="btn-link secondary large" style={{ padding: '15px 30px', borderRadius: '30px', background: 'rgba(255,255,255,0.05)' }}>
-              <ion-icon name="logo-github"></ion-icon> Source Code
-            </a>
+            {project.links.live && project.links.live !== '#' && (
+              <a href={project.links.live} target="_blank" rel="noopener noreferrer" className="btn-link large" style={{ padding: '15px 30px', borderRadius: '30px' }}>
+                <ion-icon name="globe-outline"></ion-icon> Live Demo
+              </a>
+            )}
+            {project.links.github && project.links.github !== '#' && (
+              <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="btn-link secondary large" style={{ padding: '15px 30px', borderRadius: '30px', background: 'rgba(255,255,255,0.05)' }}>
+                <ion-icon name="logo-github"></ion-icon> Source Code
+              </a>
+            )}
           </div>
         </section>
 

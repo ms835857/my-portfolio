@@ -39,7 +39,7 @@ const Sidebar = ({ isProjectMode, projects, activeProjectIndex, onProjectSelect 
                 <button onClick={() => {
                   onProjectSelect(index);
                   // Fixed: Scroll back to top of the detail container on project switch
-                  const scroller = document.querySelector('.world-back');
+                  const scroller = document.querySelector('.world-back .side-content');
                   if (scroller) scroller.scrollTo({ top: 0, behavior: 'smooth' });
                 }}>
                   {project.title}

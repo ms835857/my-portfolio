@@ -920,6 +920,24 @@ main {
   line-height: 1.6;
 }
 
+.timeline-item-role {
+  color: var(--orange-yellow-crayola);
+  font-weight: var(--fw-600);
+  margin-bottom: 5px;
+}
+
+.timeline-list-bullets {
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+.timeline-list-bullets li {
+  list-style-type: disc;
+  color: var(--light-gray);
+  margin-bottom: 5px;
+  display: list-item;
+}
+
 
 /**
  * skills 
