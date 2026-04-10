@@ -1,0 +1,119 @@
+.preloader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #020408;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+.particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.orb-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.orb {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.8;
+}
+
+/* Antigravity / Google Palette */
+.orb-blue { background: #3186FF; box-shadow: 0 0 60px #3186FF; }
+.orb-red { background: #FC413D; box-shadow: 0 0 60px #FC413D; }
+.orb-yellow { background: #FBBC04; box-shadow: 0 0 60px #FBBC04; }
+.orb-green { background: #00B95C; box-shadow: 0 0 60px #00B95C; }
+
+.loader-content {
+  position: relative;
+  z-index: 10;
+  margin-top: 50px;
+  text-align: center;
+  max-width: 600px;
+  padding: 0 20px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.loader-heading {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+}
+
+.loader-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 30px;
+}
+
+.logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-item ion-icon {
+  font-size: 36px;
+  color: #ffffff;
+}
+
+.logo-name {
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.loader-text {
+  font-size: 0.95rem;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+}
+
+.loader-text span {
+  color: #ffffff;
+  font-weight: 500;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.liftoff-spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: white;
+  border-radius: 50%;
+  filter: blur(2px);
+  box-shadow: 0 0 20px white;
+}

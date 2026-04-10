@@ -14,21 +14,24 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './App.css';
 import './assets/css/back-button.css';
+import Preloader from './components/Preloader';
 import { useGSAP } from '@gsap/react';
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [isFlipped, setIsFlipped] = useState(false);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const worldRef = useRef(null);
+  const sceneRef = useRef(null);
 
   // Register plugins once
-  useGSAP(() => {
+  useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-  }, { dependencies: [] });
+  }, []);
 
   useGSAP(() => {
-    if (isFlipped || !worldRef.current) return;
+    if (isLoading || isFlipped || !worldRef.current) return;
 
     const sections = ['about', 'resume', 'portfolio', 'contact'];
     sections.forEach((section) => {
@@ -57,7 +60,13 @@ function App() {
       ease: 'power3.out',
       delay: 0.5
     });
-  }, { scope: worldRef, dependencies: [isFlipped] });
+
+    gsap.to(sceneRef.current, {
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power2.out'
+    });
+  }, { scope: sceneRef, dependencies: [isLoading, isFlipped] });
 
   useGSAP(() => {
     if (worldRef.current) {
@@ -84,8 +93,9 @@ function App() {
 
   return (
     <>
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       <ThreeBackground />
-      <div className="global-scene">
+      <div className="global-scene" ref={sceneRef} style={{ opacity: 0 }}>
         <div className={`global-world ${isFlipped ? 'is-flipped' : ''}`} ref={worldRef}>
           {/* Front Side */}
           <div className="world-side world-front">
