@@ -1,5 +1,53 @@
 export const projects = [
   {
+    title: 'Z-Tour',
+    category: 'personal projects',
+    img: './assets/images/project-9.png',
+    media: [
+      './assets/images/project-9.png'
+    ],
+    featured: true,
+    badge: 'Ongoing',
+    role: 'Solo Developer',
+    timeline: 'April 2025 — Present',
+    description: 'Personal Project - Interactive 3D Tourism Explorer for Pakistan',
+    challenge: {
+      paragraphs: [
+        'Rendering 80+ destination nodes clustered under 6 hubs in 3D space without overlap or visual clutter was non-trivial. The D3 force simulation needed careful tuning of link distances, charge strengths, and alpha decay.'
+      ],
+      bullets: [
+        'Custom-tuned D3 force parameters — hub-to-center distance scales dynamically with viewport',
+        'Multi-dimensional filter system with 5+ axes (category, province, budget, duration, group size)',
+        '3D-to-2D screen projection for floating UI cards tracking 3D node position in real-time',
+        'Mobile responsiveness for a 3D-heavy app with separate mobile layouts'
+      ]
+    },
+    solution: {
+      paragraphs: [
+        'Built an immersive, galaxy-themed 3D web application using React 19, Three.js, and react-force-graph-3d featuring over 80 tourism destinations across Pakistan organized into 6 tourism hubs.'
+      ],
+      bullets: [
+        'Custom-tuned D3 force parameters for balanced 3D layout of 80+ nodes',
+        'Centralized isNodeVisible callback evaluating all filter axes with .some() logic',
+        'graph2ScreenCoords() in requestAnimationFrame loop for real-time 3D-to-2D projection',
+        'Separate mobile layouts with bottom sheet drawers and swipeable carousels'
+      ]
+    },
+    keyFeatures: [
+      '3D Force Graph: 6 galactic hub octagons + 80+ destination hexagons with neon glow effects',
+      'Real-Time Search: Auto-fly camera to matching destination as user types (min 3 chars)',
+      'Multi-Axis Filtering: Province, budget, trip duration, group size',
+      'Floating Package Cards: Fan-layout cards around selected node with spring animations',
+      'Package Detail Modal: Full breakdown with highlights, inclusions, difficulty level',
+      'Responsive Design: Separate mobile layouts with bottom sheets and swipeable carousels',
+      'Frosted Glass UI: Consistent glass-panel design system with blur/saturation backdrops',
+      '6 Tourism Hubs: Nature, City Tours, Heritage, Adventure, Luxury, Budget',
+      '80+ Destinations across Punjab, Sindh, KP, Balochistan, GB, and Azad Kashmir'
+    ],
+    techStack: ['React 19', 'Three.js', 'D3 Force Graph', 'Framer Motion', 'Tailwind CSS', 'Vite'],
+    links: { live: 'https://ms835857.github.io/z-tour/', github: 'https://github.com/ms835857/z-tour' }
+  },
+  {
     title: 'Anime & Movie Streaming',
     category: 'university projects',
     img: './assets/images/animethumbnail.png',
@@ -92,5 +140,5 @@ export const projects = [
     ],
     techStack: ['Python', 'MQL5', 'Data Science', 'Automation'],
     links: { live: '', github: 'https://github.com/ms835857/ustec-bot' }
-  }
+  },
 ];

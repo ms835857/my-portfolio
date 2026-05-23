@@ -45,6 +45,18 @@ const Contact = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!isValid) return;
+    const phone = '923267671152';
+    const text = encodeURIComponent(
+      `Hello! I'm ${form.fullname} (${form.email}).\n\n${form.message}`
+    );
+    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+  };
+
+  const whatsappPhone = '923267671152';
+
   return (
     <div className="contact" ref={containerRef}>
       <header>
@@ -53,7 +65,7 @@ const Contact = () => {
 
       <div className="contact-form" ref={formRef}>
         <h3 className="h3 form-title">Contact Form</h3>
-        <form action="#" className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <input
               type="text"
@@ -83,10 +95,23 @@ const Contact = () => {
             onChange={handleChange}
           ></textarea>
           <button className="form-btn" type="submit" disabled={!isValid}>
-            <ion-icon name="paper-plane"></ion-icon>
-            <span>Send Message</span>
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            <span>Send via WhatsApp</span>
           </button>
         </form>
+
+        <div className="whatsapp-direct">
+          <span className="whatsapp-divider">or</span>
+          <a
+            href={`https://wa.me/${whatsappPhone}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="whatsapp-chat-btn"
+          >
+            <ion-icon name="logo-whatsapp"></ion-icon>
+            <span>Chat Directly</span>
+          </a>
+        </div>
       </div>
     </div>
   );

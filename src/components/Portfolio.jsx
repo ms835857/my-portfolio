@@ -67,9 +67,9 @@ const Portfolio = ({ onProjectSelect }) => {
             const globalIndex = projects.findIndex(p => p.title === project.title);
             
             return (
-              <li key={index} className="project-item active">
+              <li key={index} className={`project-item active${project.featured ? ' featured' : ''}`}>
                 <button 
-                  className="project-link-button" 
+                  className={`project-link-button${project.featured ? ' featured-btn' : ''}`} 
                   onClick={() => onProjectSelect(globalIndex)}
                 >
                   <figure className="project-img">
@@ -78,11 +78,38 @@ const Portfolio = ({ onProjectSelect }) => {
                     </div>
                     <img src={project.img} alt={project.title} loading="lazy" />
                   </figure>
-                  <h3 className="project-title">
-                    {project.title}
-                    {project.badge && <span className="project-badge">{project.badge}</span>}
-                  </h3>
-                  <p className="project-category">{project.description}</p>
+                  {project.featured ? (
+                    <div className="featured-content">
+                      <div className="featured-header">
+                        <h3 className="project-title">{project.title}</h3>
+                        <div className="featured-badges">
+                          <span className="featured-tag">Featured</span>
+                          {project.badge && <span className="project-badge">{project.badge}</span>}
+                        </div>
+                      </div>
+                      <p className="project-category">{project.description}</p>
+                      <div className="featured-meta">
+                        <span><ion-icon name="person-outline"></ion-icon> {project.role}</span>
+                        <span><ion-icon name="time-outline"></ion-icon> {project.timeline}</span>
+                      </div>
+                      <div className="featured-tech">
+                        {project.techStack.slice(0, 4).map((tech, i) => (
+                          <span key={i} className="featured-tech-pill">{tech}</span>
+                        ))}
+                        {project.techStack.length > 4 && (
+                          <span className="featured-tech-pill">+{project.techStack.length - 4}</span>
+                        )}
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <h3 className="project-title">
+                        {project.title}
+                        {project.badge && <span className="project-badge">{project.badge}</span>}
+                      </h3>
+                      <p className="project-category">{project.description}</p>
+                    </>
+                  )}
                 </button>
               </li>
             );
