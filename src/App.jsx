@@ -22,7 +22,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('about');
   const [isFlipped, setIsFlipped] = useState(false);
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const worldRef = useRef(null);
   const sceneRef = useRef(null);
 
@@ -52,7 +52,7 @@ function App() {
   }, []);
 
   useGSAP(() => {
-    if (isLoading || isFlipped || !worldRef.current) return;
+    if (isFlipped || !worldRef.current) return;
 
     const sections = ['about', 'resume', 'portfolio', 'contact'];
     sections.forEach((section) => {
@@ -68,26 +68,18 @@ function App() {
 
     gsap.from('.world-front main', {
       opacity: 0,
-      y: 50,
-      duration: 1,
-      ease: 'power3.out',
-      delay: 0.3
+      y: 30,
+      duration: 0.8,
+      ease: 'power3.out'
     });
 
     gsap.from('.navbar', {
       opacity: 0,
-      y: -30,
-      duration: 0.8,
-      ease: 'power3.out',
-      delay: 0.5
+      y: -20,
+      duration: 0.6,
+      ease: 'power3.out'
     });
-
-    gsap.to(sceneRef.current, {
-      opacity: 1,
-      duration: 1.2,
-      ease: 'power2.out'
-    });
-  }, { scope: sceneRef, dependencies: [isLoading, isFlipped] });
+  }, { scope: sceneRef, dependencies: [isFlipped] });
 
   useGSAP(() => {
     if (worldRef.current) {
@@ -114,9 +106,8 @@ function App() {
 
   return (
     <>
-      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
       <ThreeBackground />
-      <div className="global-scene" ref={sceneRef} style={{ opacity: 0 }}>
+      <div className="global-scene" ref={sceneRef} style={{ opacity: 1 }}>
         <div className={`global-world ${isFlipped ? 'is-flipped' : ''}`} ref={worldRef}>
           {/* Front Side */}
           <div className="world-side world-front">

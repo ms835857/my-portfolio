@@ -130,7 +130,7 @@ const About = ({ activeDomain = 'all' }) => {
         <div className="hero-cta-group">
           <button className="btn-hero-primary" onClick={() => scrollToSection('portfolio')}>
             <ion-icon name="briefcase-outline"></ion-icon>
-            <span>View My Work</span>
+            <span>View Case Studies</span>
           </button>
           <button className="btn-hero-secondary" onClick={() => scrollToSection('contact')}>
             <ion-icon name="paper-plane-outline"></ion-icon>
@@ -138,6 +138,17 @@ const About = ({ activeDomain = 'all' }) => {
           </button>
         </div>
       </header>
+
+      {/* 2. ABOUT / INTRO SECTION */}
+      <div className="about-intro-block" ref={textRef} style={{ marginBottom: '40px' }}>
+        <h3 className="h3 service-title">About Me</h3>
+        <p className="service-item-text" style={{ fontSize: '1.05rem', color: 'var(--light-gray)', lineHeight: '1.75' }}>
+          I am a Full Stack Developer and Technical Partner who bridges the gap between software engineering and revenue growth. 
+          With a core stack in <strong>React, Next.js, .NET, and Python</strong> backed by 5 years of hands-on experience in sales and marketing, 
+          I don't just write code—I engineer conversion-focused digital products. 
+          Whether you are launching a new SaaS MVP, scaling enterprise backend APIs, or automating complex workflows, I build fast, secure, and intuitive systems designed to deliver measurable business impact.
+        </p>
+      </div>
 
       {/* 2. WHAT I DO (SERVICES) */}
       <div className="service" ref={servicesRef}>
