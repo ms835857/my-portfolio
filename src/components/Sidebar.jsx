@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Sidebar = ({ isProjectMode, projects, activeProjectIndex, onProjectSelect }) => {
+const Sidebar = ({ isProjectMode, projects, activeProjectIndex, onProjectSelect, activeDomain = 'dev', onDomainChange }) => {
   const [isActive, setIsActive] = useState(false);
 
   const activeProject = isProjectMode && projects ? projects[activeProjectIndex] : null;
@@ -20,7 +20,36 @@ const Sidebar = ({ isProjectMode, projects, activeProjectIndex, onProjectSelect 
           <h1 className="name" title={isProjectMode ? activeProject?.title : "Muhammad Saad"}>
             {isProjectMode ? activeProject?.title : "Muhammad Saad"}
           </h1>
-          <p className="title">{isProjectMode ? activeProject?.category : "Web developer"}</p>
+          <p className="title">{isProjectMode ? activeProject?.category : "Full Stack Developer"}</p>
+
+          {!isProjectMode && onDomainChange && (
+            <div className="sidebar-domain-switcher">
+              <button 
+                className={`domain-pill ${activeDomain === 'dev' ? 'active' : ''}`}
+                onClick={() => onDomainChange('dev')}
+                title="Developer View"
+              >
+                <ion-icon name="code-slash-outline"></ion-icon>
+                <span>Dev</span>
+              </button>
+              <button 
+                className={`domain-pill ${activeDomain === 'sales' ? 'active' : ''}`}
+                onClick={() => onDomainChange('sales')}
+                title="Sales & Marketing View"
+              >
+                <ion-icon name="trending-up-outline"></ion-icon>
+                <span>Sales</span>
+              </button>
+              <button 
+                className={`domain-pill ${activeDomain === 'all' ? 'active' : ''}`}
+                onClick={() => onDomainChange('all')}
+                title="View All Content"
+              >
+                <ion-icon name="grid-outline"></ion-icon>
+                <span>All</span>
+              </button>
+            </div>
+          )}
         </div>
 
         <button className="info_more-btn" onClick={() => setIsActive(!isActive)} data-sidebar-btn>

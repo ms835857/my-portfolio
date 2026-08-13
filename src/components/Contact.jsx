@@ -14,10 +14,10 @@ const Contact = () => {
 
   useGSAP(() => {
     gsap.from(titleRef.current, {
-      y: -50,
+      y: -40,
       opacity: 0,
-      scale: 0.9,
-      duration: 1,
+      scale: 0.95,
+      duration: 0.9,
       ease: 'power3.out',
       scrollTrigger: {
         trigger: containerRef.current,
@@ -26,20 +26,19 @@ const Contact = () => {
       },
     });
 
-    gsap.from(formRef.current?.querySelectorAll('.form-input, .form-btn') || [], {
-      y: 60,
+    gsap.from(formRef.current?.querySelectorAll('.form-input, .cta-action-btn, .form-btn') || [], {
+      y: 40,
       opacity: 0,
-      scale: 0.9,
       duration: 0.6,
-      stagger: 0.15,
-      ease: 'back.out(1.4)',
+      stagger: 0.1,
+      ease: 'power3.out',
       scrollTrigger: {
         trigger: formRef.current,
         scroller: '.side-content',
         start: 'top 80%',
       },
     });
-  }, { dependencies: [], revertOnUpdate: true }); // No scope to allow scroller: .world-front
+  }, { dependencies: [], revertOnUpdate: true });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -59,19 +58,60 @@ const Contact = () => {
 
   return (
     <div className="contact" ref={containerRef}>
-      <header>
-        <h2 className="h2 article-title" ref={titleRef}>Contact</h2>
+      <header className="cta-section-header" ref={titleRef} style={{ marginBottom: '30px' }}>
+        <span className="hero-badge-tag">Start A Project</span>
+        <h2 className="h2 article-title" style={{ fontSize: '2rem', marginTop: '10px' }}>
+          Let’s build something that actually delivers results
+        </h2>
+        <p style={{ color: 'var(--light-gray)', fontSize: '1rem', lineHeight: '1.6', marginTop: '10px' }}>
+          Have a SaaS MVP, full stack web application, or automation engine to build? 
+          Get in touch directly and let’s discuss how to bring your product to life.
+        </p>
       </header>
 
+      {/* Direct Quick Contact Buttons */}
+      <div className="cta-buttons-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '15px', marginBottom: '35px' }}>
+        <a 
+          href="mailto:ms835857@gmail.com" 
+          className="cta-action-btn"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 20px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--jet)', borderRadius: '12px', color: 'var(--white-2)', textDecoration: 'none', fontWeight: '600', transition: 'all 0.3s ease' }}
+        >
+          <ion-icon name="mail-outline" style={{ fontSize: '20px', color: 'var(--orange-yellow-crayola)' }}></ion-icon>
+          <span>Email Me Direct</span>
+        </a>
+
+        <a 
+          href="https://linkedin.com" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="cta-action-btn"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 20px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--jet)', borderRadius: '12px', color: 'var(--white-2)', textDecoration: 'none', fontWeight: '600', transition: 'all 0.3s ease' }}
+        >
+          <ion-icon name="logo-linkedin" style={{ fontSize: '20px', color: '#0A66C2' }}></ion-icon>
+          <span>Connect on LinkedIn</span>
+        </a>
+
+        <a 
+          href={`https://wa.me/${whatsappPhone}`}
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="cta-action-btn"
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 20px', background: 'rgba(37, 211, 102, 0.15)', border: '1px solid rgba(37, 211, 102, 0.3)', borderRadius: '12px', color: '#25D366', textDecoration: 'none', fontWeight: '600', transition: 'all 0.3s ease' }}
+        >
+          <ion-icon name="logo-whatsapp" style={{ fontSize: '20px' }}></ion-icon>
+          <span>WhatsApp Chat</span>
+        </a>
+      </div>
+
       <div className="contact-form" ref={formRef}>
-        <h3 className="h3 form-title">Contact Form</h3>
+        <h3 className="h3 form-title">Send A Direct Message</h3>
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <input
               type="text"
               name="fullname"
               className="form-input"
-              placeholder="Full name"
+              placeholder="Your Name / Company"
               required
               value={form.fullname}
               onChange={handleChange}
@@ -80,7 +120,7 @@ const Contact = () => {
               type="email"
               name="email"
               className="form-input"
-              placeholder="Email address"
+              placeholder="Email Address"
               required
               value={form.email}
               onChange={handleChange}
@@ -89,29 +129,16 @@ const Contact = () => {
           <textarea
             name="message"
             className="form-input"
-            placeholder="Your Message"
+            placeholder="Tell me about your project, timeline, and goals..."
             required
             value={form.message}
             onChange={handleChange}
           ></textarea>
-          <button className="form-btn" type="submit" disabled={!isValid}>
-            <ion-icon name="logo-whatsapp"></ion-icon>
-            <span>Send via WhatsApp</span>
+          <button className="form-btn" type="submit" disabled={!isValid} style={{ width: '100%', justifyContent: 'center' }}>
+            <ion-icon name="paper-plane-outline"></ion-icon>
+            <span>Send Message</span>
           </button>
         </form>
-
-        <div className="whatsapp-direct">
-          <span className="whatsapp-divider">or</span>
-          <a
-            href={`https://wa.me/${whatsappPhone}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="whatsapp-chat-btn"
-          >
-            <ion-icon name="logo-whatsapp"></ion-icon>
-            <span>Chat Directly</span>
-          </a>
-        </div>
       </div>
     </div>
   );

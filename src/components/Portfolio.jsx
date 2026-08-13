@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Portfolio = ({ onProjectSelect }) => {
+const Portfolio = ({ activeDomain = 'all', onProjectSelect }) => {
   const [filter, setFilter] = useState('all');
   const containerRef = useRef(null);
   const titleRef = useRef(null);
@@ -14,7 +14,11 @@ const Portfolio = ({ onProjectSelect }) => {
 
   const categories = ['All', 'University Projects', 'Personal Projects'];
 
-  const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
+  const filteredProjects = projects.filter(p => {
+    const matchesDomain = activeDomain === 'all' || p.domainCategory === activeDomain || p.domainCategory === 'both';
+    const matchesType = filter === 'all' || (p.projectType || p.category) === filter;
+    return matchesDomain && matchesType;
+  });
 
   useGSAP(() => {
     gsap.from(titleRef.current, {
@@ -29,7 +33,7 @@ const Portfolio = ({ onProjectSelect }) => {
         start: 'top 80%',
       },
     });
-  }, { dependencies: [], revertOnUpdate: true });
+  }, { dependencies: [activeDomain], revertOnUpdate: true });
 
   useGSAP(() => {
     const items = projectListRef.current?.querySelectorAll('.project-item');
@@ -39,7 +43,7 @@ const Portfolio = ({ onProjectSelect }) => {
         { scale: 1, opacity: 1, rotation: 0, duration: 0.5, stagger: 0.08, ease: 'back.out(1.7)' }
       );
     }
-  }, { dependencies: [filter], scope: projectListRef });
+  }, { dependencies: [filter, activeDomain], scope: projectListRef });
 
   return (
     <div className="portfolio" ref={containerRef}>

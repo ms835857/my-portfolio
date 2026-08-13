@@ -10,29 +10,43 @@ const ProjectDetailView = ({ project, onReturn }) => {
   const containerRef = useRef(null);
   const touchStartY = useRef(0);
 
+  // Reset carousel index and scroll to top on project switch
+  React.useEffect(() => {
+    setCurrentMediaIndex(0);
+    const scroller = document.querySelector('.world-back .side-content');
+    if (scroller) {
+      scroller.scrollTop = 0;
+    }
+    // Refresh ScrollTrigger after DOM updates
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [project]);
+
   useGSAP(() => {
     if (!project || !containerRef.current) return;
 
     const sections = containerRef.current.querySelectorAll('.cinematic-section');
     sections.forEach((section, index) => {
       gsap.fromTo(section, 
-        { opacity: 0, y: 50 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 1,
-          delay: index === 0 ? 0.2 : 0, // First section appears almost immediately
+          duration: 0.8,
+          delay: index === 0 ? 0.1 : 0,
           ease: 'power3.out',
           scrollTrigger: {
             trigger: section,
-            scroller: ".side-content",
-            start: 'top 85%',
-            toggleActions: 'play none none reverse', // Fades back out when scrolling up
+            scroller: ".world-back .side-content",
+            start: 'top 92%',
+            toggleActions: 'play none none none', // Keep content visible once loaded
           }
         }
       );
     });
-  }, { dependencies: [project], revertOnUpdate: true }); // No scope to allow scroller: .side-content
+  }, { dependencies: [project], revertOnUpdate: true });
 
   // Gestalt Swipe / Rapid Scroll detection
   const handleWheel = (e) => {

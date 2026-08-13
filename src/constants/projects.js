@@ -1,54 +1,132 @@
 export const projects = [
   {
-    title: 'Z-Tour',
+    title: 'USTEC Algorithmic Trading Bot',
+    domainCategory: 'dev',
+    projectType: 'personal projects',
+    category: 'personal projects',
+    img: './assets/images/project-4.png',
+    media: [
+      './assets/images/project-4.png'
+    ],
+    featured: true,
+    badge: 'Flagship Case Study',
+    role: 'Full Stack & Algo Engineer',
+    timeline: '8+ Months',
+    description: 'Real-time automated trading system & live analytics dashboard for Nasdaq 100 (USTEC)',
+    problemGoal: 'Manual trading on USTEC (Nasdaq 100) is vulnerable to millisecond latency, market noise, and emotional execution errors during high-volatility liquidity spikes.',
+    whatIBuilt: 'Engineered an end-to-end automated trading infrastructure combining a Python desktop data processing engine, microsecond MQL5 bridge, and real-time React web dashboard.',
+    challenge: {
+      paragraphs: [
+        'Navigating the extreme intraday volatility of USTEC requires sub-second price processing and strict automated risk limits. Traditional manual strategies lag behind high-frequency shifts, causing slippage and emotional drawdowns.'
+      ],
+      bullets: [
+        'Microsecond order execution via custom MQL5 to Python IPC bridge',
+        'Filtering market noise with real-time statistical momentum indicators',
+        'Synchronizing local desktop execution with web dashboard state'
+      ]
+    },
+    solution: {
+      paragraphs: [
+        'Built a dual Web + Desktop system: Python handles real-time tick analysis and automated signal generation, while a sleek web interface provides remote monitoring and strategy parameter overrides.'
+      ],
+      bullets: [
+        'Real-time data streaming & live metric processing',
+        'Automated trailing stop-loss & risk management rules',
+        'Cross-platform desktop runner + React web monitoring portal'
+      ]
+    },
+    keyFeatures: [
+      '⚡ Real-Time Tick Processing: Sub-second price ingestion and instant signal evaluation',
+      '🤖 Full Execution Automation: Hands-free order placement with dynamic trailing stops',
+      '💻 Web + Desktop Architecture: Lightweight Python runner paired with React web management UI',
+      '🛡️ Hardcoded Risk Management: Auto-close on max daily drawdown to protect trading capital',
+      '📊 Historical Backtesting Engine: Tested across 5+ years of USTEC tick data'
+    ],
+    techStack: ['Python', 'React', 'MQL5 / .NET', 'WebSockets', 'Pandas'],
+    links: { live: '', github: 'https://github.com/ms835857/ustec-bot' }
+  },
+  {
+    title: 'Z-Tour 3D Tourism Platform',
+    domainCategory: 'dev',
+    projectType: 'personal projects',
     category: 'personal projects',
     img: './assets/images/project-9.png',
     media: [
       './assets/images/project-9.png'
     ],
     featured: true,
-    badge: 'Ongoing',
-    role: 'Solo Developer',
+    badge: 'Interactive Web App',
+    role: 'Full Stack Developer',
     timeline: 'April 2025 — Present',
-    description: 'Personal Project - Interactive 3D Tourism Explorer for Pakistan',
+    description: 'Immersive 3D tourism explorer & booking engine for 80+ destinations across Pakistan',
+    problemGoal: 'Traditional travel booking directories present destination data in static text lists, leading to low user engagement and poor visual exploration.',
+    whatIBuilt: 'Built an interactive galaxy-themed 3D web application with force-directed cluster graphs, 3D-to-2D UI tracking cards, and real-time multi-axis search.',
     challenge: {
       paragraphs: [
-        'Rendering 80+ destination nodes clustered under 6 hubs in 3D space without overlap or visual clutter was non-trivial. The D3 force simulation needed careful tuning of link distances, charge strengths, and alpha decay.'
+        'Clustering 80+ destinations into 6 tourism hubs in 3D space without visual overlap required custom D3 force physics tuning and real-time 3D camera projection.'
       ],
       bullets: [
-        'Custom-tuned D3 force parameters — hub-to-center distance scales dynamically with viewport',
-        'Multi-dimensional filter system with 5+ axes (category, province, budget, duration, group size)',
-        '3D-to-2D screen projection for floating UI cards tracking 3D node position in real-time',
-        'Mobile responsiveness for a 3D-heavy app with separate mobile layouts'
+        'Dynamic camera flying to destination nodes on search input',
+        'Real-time 3D-to-2D screen coordinate projection for floating package cards',
+        'Multi-axis filtering (province, budget, trip duration, group size)'
       ]
     },
     solution: {
       paragraphs: [
-        'Built an immersive, galaxy-themed 3D web application using React 19, Three.js, and react-force-graph-3d featuring over 80 tourism destinations across Pakistan organized into 6 tourism hubs.'
+        'Combined React 19, Three.js, and D3 force physics to deliver a futuristic frosted-glass travel discovery portal with instant filtering and responsive mobile drawer UI.'
       ],
       bullets: [
-        'Custom-tuned D3 force parameters for balanced 3D layout of 80+ nodes',
-        'Centralized isNodeVisible callback evaluating all filter axes with .some() logic',
-        'graph2ScreenCoords() in requestAnimationFrame loop for real-time 3D-to-2D projection',
-        'Separate mobile layouts with bottom sheet drawers and swipeable carousels'
+        'Custom D3 force-directed 3D hub network',
+        'Floating card overlays tracking 3D node movement',
+        'Frosted glass design system with responsive mobile carousels'
       ]
     },
     keyFeatures: [
-      '3D Force Graph: 6 galactic hub octagons + 80+ destination hexagons with neon glow effects',
-      'Real-Time Search: Auto-fly camera to matching destination as user types (min 3 chars)',
-      'Multi-Axis Filtering: Province, budget, trip duration, group size',
-      'Floating Package Cards: Fan-layout cards around selected node with spring animations',
-      'Package Detail Modal: Full breakdown with highlights, inclusions, difficulty level',
-      'Responsive Design: Separate mobile layouts with bottom sheets and swipeable carousels',
-      'Frosted Glass UI: Consistent glass-panel design system with blur/saturation backdrops',
-      '6 Tourism Hubs: Nature, City Tours, Heritage, Adventure, Luxury, Budget',
-      '80+ Destinations across Punjab, Sindh, KP, Balochistan, GB, and Azad Kashmir'
+      '🌌 Interactive 3D Force Graph: 6 galactic hubs & 80+ destination nodes with glow shaders',
+      '🔍 Auto-Fly Search Engine: Camera smoothly transitions to matching destination as user types',
+      '🎯 Multi-Axis Filter Matrix: Real-time filtering by budget bracket, duration, and trip category',
+      '📱 Mobile-First Responsive UI: Bottom sheet filter drawer & gesture carousel for mobile screens'
     ],
-    techStack: ['React 19', 'Three.js', 'D3 Force Graph', 'Framer Motion', 'Tailwind CSS', 'Vite'],
+    techStack: ['React 19', 'Three.js', 'R3F / Drei', 'D3 Force', 'Tailwind CSS', 'Vite'],
     links: { live: 'https://ms835857.github.io/z-tour/', github: 'https://github.com/ms835857/z-tour' }
   },
   {
-    title: 'Anime & Movie Streaming',
+    title: 'GOLD Algorithmic Trading Bot',
+    domainCategory: 'dev',
+    projectType: 'personal projects',
+    category: 'personal projects',
+    img: './assets/images/project-3.jpg',
+    media: [
+      './assets/images/project-3.jpg'
+    ],
+    badge: 'Ongoing',
+    role: 'Algorithm Engineer',
+    timeline: '6+ Months',
+    description: 'Python automated trading system for XAUUSD (Gold) with automated risk management',
+    problemGoal: 'Trading Gold (XAUUSD) involves intense macroeconomic news spikes and extreme leverage risks that trigger frequent capital losses for manual traders.',
+    whatIBuilt: 'Developed an automated Python trading engine integrated with MetaTrader 5 that executes data-backed momentum strategies with automated stop-loss protection.',
+    challenge: {
+      paragraphs: [
+        'Gold prices experience sudden liquidity spikes around market opens and news events. Managing risk required strict automated execution.'
+      ]
+    },
+    solution: {
+      paragraphs: [
+        'Automated trade entry and position sizing using quantitative indicators, eliminating human emotional interference and ensuring strict stop-loss adherence.'
+      ]
+    },
+    keyFeatures: [
+      '📈 Automated Strategy Execution: Objective algorithm monitors volume & key breakout levels',
+      '🛡️ Dynamic Stop-Loss & Take-Profit: Real-time risk adjustments based on ATR volatility',
+      '🔗 MetaTrader 5 Native Integration: Direct API connection for lightning-fast execution'
+    ],
+    techStack: ['Python', 'MetaTrader 5 API', 'Pandas', 'NumPy'],
+    links: { live: '', github: '' }
+  },
+  {
+    title: 'Anime & Cinema Streaming Platform',
+    domainCategory: 'dev',
+    projectType: 'university projects',
     category: 'university projects',
     img: './assets/images/animethumbnail.png',
     media: [
@@ -57,88 +135,25 @@ export const projects = [
     ],
     role: 'Frontend Developer',
     timeline: '2 Months',
-    description: 'University Project - React-based streaming website',
+    description: 'Modern SPA streaming dashboard with real-time TMDB integration & user watchlists',
+    problemGoal: 'Legacy multi-page movie directory PHP applications suffer from slow page reloads and outdated visual presentation.',
+    whatIBuilt: 'Migrated static PHP infrastructure into a high-performance React Single-Page Application (SPA) with live API metadata & Firebase watchlist sync.',
     challenge: {
       paragraphs: [
-        'The core objective of this project was the complete architectural overhaul of a traditional media tracking platform. Originally developed as a multi-page application using HTML, CSS, and PHP, the site served as a basic directory for Western cinema and Anime. The challenge lay in migrating this static infrastructure into a high-performance, Single-Page Application (SPA) using React.'
-      ],
-      bullets: [
-        'From Static to Dynamic: Transitioned from PHP-rendered server-side pages to a component-based architecture',
-        'Modernizing the UI/UX: Implemented "3D-first" user experience using React-Three-Fiber',
-        'Data Handling: Utilized React hooks for real-time search and category toggling',
-        'The Deployment Pivot: Adapted for modern hosting environments like GitHub Pages/Vercel'
+        'Overhauling server-side PHP pages into a dynamic client-side SPA required clean state management and fast asset delivery.'
       ]
     },
     solution: {
       paragraphs: [
-        'Developed a unified streaming dashboard that aggregates data from multiple APIs.',
-        'Features a clean, Glassmorphism UI, allowing users to effortlessly search, track, and curate their personal watchlists.'
-      ],
-      bullets: [
-        'TMDB API Integration for real-time metadata',
-        'Personalized Watchlist synced via Firebase',
-        'Responsive, Glassmorphic UI Design',
-        'Advanced Search and Genre Filtering'
+        'Engineered a glassmorphic streaming UI integrating TMDB API endpoints for real-time trending titles, detailed cast info, and instant video previews.'
       ]
     },
     keyFeatures: [
-      'TMDB API Integration for real-time metadata',
-      'Personalized Watchlist synced via Firebase',
-      'Responsive, Glassmorphic UI Design',
-      'Advanced Search and Genre Filtering'
+      '🎬 Live TMDB Metadata Integration: Real-time search, movie trailers, and detailed cast breakdown',
+      '🔥 Firebase Watchlist Sync: User account watchlists synced seamlessly across devices',
+      '✨ Glassmorphic UI/UX: Modern dark aesthetic with smooth category transitions'
     ],
-    techStack: ['React', 'Firebase', 'TMDB API', 'Tailwind'],
+    techStack: ['React', 'Firebase', 'TMDB REST API', 'Tailwind CSS'],
     links: { live: 'https://ms835857.github.io/streaming-site/', github: 'https://github.com/ms835857/streaming-site' }
-  },
-  {
-    title: 'GOLD Trading Bot',
-    category: 'personal projects',
-    img: './assets/images/project-3.jpg',
-    media: [
-      './assets/images/project-3.jpg'
-    ],
-    badge: 'Ongoing',
-    role: 'Algorithm Developer',
-    timeline: '6+ Months',
-    description: 'Personal Project - Python trading bot for GOLD',
-    challenge: {
-      paragraphs: ['Trading XAUUSD (Gold) requires navigating a complex landscape where global macroeconomic shifts and sudden geopolitical tensions trigger intense liquidity spikes and sharp reversals. For many traders, the challenge is twofold: managing the inherent risk of golds high-leverage movements and maintaining a neutral perspective when market sentiment becomes erratic, which often leads to over-trading or holding losing positions for too long.']
-    },
-    solution: {
-      paragraphs: ['This bot overcomes these obstacles by implementing a data-driven strategy that prioritizes capital preservation and precision. Using Python-based automation, it monitors key price levels and volume indicators to capitalize on specific intraday trends without the interference of human emotion. By automating the entry and exit process, the bot ensures that every trade is backed by backtested logic and protected by rigorous, automated risk-management layers designed to handle Golds unique volatility.']
-    },
-    keyFeatures: [
-      'MetaTrader 5 Native Integration',
-      'Dynamic Stop-Loss and Take-Profit Adjustments',
-      'Machine Learning enhanced entry signals',
-      'Comprehensive Risk Management protocols'
-    ],
-    techStack: ['Python', 'MetaTrader 5', 'Pandas', 'NumPy'],
-    links: { live: '', github: '' }
-  },
-  {
-    title: 'USTEC Trading Bot',
-    category: 'personal projects',
-    img: './assets/images/project-4.png',
-    media: [
-      './assets/images/project-4.png'
-    ],
-    badge: 'Ongoing',
-    role: 'Quantitative Developer',
-    timeline: '8+ Months',
-    description: 'Personal Project - Python trading bot for USTEC',
-    challenge: {
-      paragraphs: ['Navigating the high volatility and rapid price fluctuations of the Nasdaq 100 (USTEC) presents a significant hurdle for manual traders, often leading to emotional decision-making and delayed execution. The primary difficulty lies in filtering market noise to identify high-probability trend reversals and momentum shifts within a fast-paced environment where traditional indicators often lag.']
-    },
-    solution: {
-      paragraphs: ['To address these inefficiencies, this bot utilizes a systematic approach built on Python, integrating real-time data analysis with disciplined risk management protocols. By executing trades based on objective algorithmic triggers, the solution eliminates psychological bias and ensures lightning-fast execution, allowing for consistent participation in market moves while strictly adhering to predefined stop-loss and take-profit parameters.']
-    },
-    keyFeatures: [
-      'Historical Data Backtesting Engine',
-      'Statistical Arbitrage Identification',
-      'MQL5 Bridge integration for rapid execution'
-    ],
-    techStack: ['Python', 'MQL5', 'Data Science', 'Automation'],
-    links: { live: '', github: 'https://github.com/ms835857/ustec-bot' }
-  },
+  }
 ];

@@ -9,6 +9,7 @@ import ThreeBackground from './components/ThreeBackground';
 import ProjectDetailView from './components/ProjectDetailView';
 import ProjectNavbar from './components/ProjectNavbar';
 import BackButton from './components/BackButton';
+import DomainFilter from './components/DomainFilter';
 import { projects } from './constants/projects';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -24,6 +25,26 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const worldRef = useRef(null);
   const sceneRef = useRef(null);
+
+  // Read initial domain from URL query param ?view= or default to 'dev'
+  const getInitialDomain = () => {
+    const params = new URLSearchParams(window.location.search);
+    const viewParam = params.get('view')?.toLowerCase();
+    if (viewParam === 'all' || viewParam === 'dev' || viewParam === 'sales') {
+      return viewParam;
+    }
+    return 'dev';
+  };
+
+  const [activeDomain, setActiveDomain] = useState(getInitialDomain);
+
+  // Handle domain change and sync URL parameter without page reload
+  const handleDomainChange = (newDomain) => {
+    setActiveDomain(newDomain);
+    const url = new URL(window.location.href);
+    url.searchParams.set('view', newDomain);
+    window.history.replaceState({}, '', url.toString());
+  };
 
   // Register plugins once
   useEffect(() => {
@@ -102,13 +123,13 @@ function App() {
             <Navbar activeSection={activeSection} />
             <div className="side-content">
               <main>
-                <Sidebar />
+                <Sidebar activeDomain={activeDomain} onDomainChange={handleDomainChange} />
                 <div className="main-content">
                   <div className="scroll-container">
-                    <section id="about"><About /></section>
-                    <section id="resume"><Resume /></section>
+                    <section id="about"><About activeDomain={activeDomain} /></section>
+                    <section id="resume"><Resume activeDomain={activeDomain} /></section>
                     <section id="portfolio">
-                      <Portfolio onProjectSelect={handleProjectSelect} />
+                      <Portfolio activeDomain={activeDomain} onProjectSelect={handleProjectSelect} />
                     </section>
                     <section id="contact"><Contact /></section>
                   </div>
