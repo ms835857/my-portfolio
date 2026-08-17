@@ -1,6 +1,6 @@
 export const projects = [
   {
-    title: 'USTEC Algorithmic Trading Bot',
+    title: 'USTEC Algorithmic Trading Ecosystem',
     domainCategory: 'dev',
     projectType: 'personal projects',
     category: 'personal projects',
@@ -12,41 +12,41 @@ export const projects = [
     badge: 'Flagship Case Study',
     role: 'Full Stack & Algo Engineer',
     timeline: '8+ Months',
-    description: 'Real-time automated trading system & live analytics dashboard for Nasdaq 100 (USTEC)',
-    problemGoal: 'Manual trading on USTEC (Nasdaq 100) is vulnerable to millisecond latency, market noise, and emotional execution errors during high-volatility liquidity spikes.',
-    whatIBuilt: 'Engineered an end-to-end automated trading infrastructure combining a Python desktop data processing engine, microsecond MQL5 bridge, and real-time React web dashboard.',
+    description: 'Real-Time Automated Trading & Live Analytics Engine for Nasdaq 100 (USTEC)',
+    problemGoal: 'In high-volatility financial markets like USTEC (Nasdaq 100), a 500-millisecond latency delay or emotional execution error can destroy thousands of dollars in capital.',
+    whatIBuilt: 'Engineered a high-speed Python processing engine connected via microsecond MQL5 bridge directly to MetaTrader 5 brokers, paired with a 24/7 React web monitoring dashboard.',
     challenge: {
       paragraphs: [
-        'Navigating the extreme intraday volatility of USTEC requires sub-second price processing and strict automated risk limits. Traditional manual strategies lag behind high-frequency shifts, causing slippage and emotional drawdowns.'
+        'Why It Matters: Manual traders suffer from execution latency and emotional drawdowns during sharp intraday volatility spikes. Replaced manual latency with zero-delay automated execution.'
       ],
       bullets: [
         'Microsecond order execution via custom MQL5 to Python IPC bridge',
-        'Filtering market noise with real-time statistical momentum indicators',
-        'Synchronizing local desktop execution with web dashboard state'
+        'Real-time statistical momentum filtering to eliminate market noise',
+        'Real-time WebSocket tick ingestion & live risk control boundary enforcement'
       ]
     },
     solution: {
       paragraphs: [
-        'Built a dual Web + Desktop system: Python handles real-time tick analysis and automated signal generation, while a sleek web interface provides remote monitoring and strategy parameter overrides.'
+        'The Solution Engineered: A lightweight local execution engine synchronized in real-time with a remote React dashboard for live telemetry, automated trailing stops, and remote risk overrides.'
       ],
       bullets: [
-        'Real-time data streaming & live metric processing',
-        'Automated trailing stop-loss & risk management rules',
-        'Cross-platform desktop runner + React web monitoring portal'
+        'Real-time tick processing & sub-second price evaluation',
+        'Automated trailing stop-loss & daily drawdown boundary auto-close',
+        'Cross-platform Python engine + React web telemetry portal'
       ]
     },
     keyFeatures: [
-      '⚡ Real-Time Tick Processing: Sub-second price ingestion and instant signal evaluation',
-      '🤖 Full Execution Automation: Hands-free order placement with dynamic trailing stops',
-      '💻 Web + Desktop Architecture: Lightweight Python runner paired with React web management UI',
-      '🛡️ Hardcoded Risk Management: Auto-close on max daily drawdown to protect trading capital',
-      '📊 Historical Backtesting Engine: Tested across 5+ years of USTEC tick data'
+      '⚡ Sub-Second Tick Processing: Ingests live market ticks and evaluates technical triggers in microseconds',
+      '🤖 Zero-Emotion Execution: Hands-free order placement with dynamic trailing stops and risk protection',
+      '💻 Dual Web + Desktop Architecture: Python backend engine paired with a responsive React dashboard',
+      '🛡️ Hardcoded Capital Protection: Automatically closes positions upon reaching pre-set daily risk limits',
+      '📊 5+ Year Backtesting Engine: Quantitative backtesting across multi-year historical tick data'
     ],
     techStack: ['Python', 'React', 'MQL5 / .NET', 'WebSockets', 'Pandas'],
     links: { live: '', github: 'https://github.com/ms835857/ustec-bot' }
   },
   {
-    title: 'Z-Tour 3D Tourism Platform',
+    title: 'Z-Tour 3D Tourism Discovery Platform',
     domainCategory: 'dev',
     projectType: 'personal projects',
     category: 'personal projects',
@@ -58,32 +58,32 @@ export const projects = [
     badge: 'Interactive Web App',
     role: 'Full Stack Developer',
     timeline: 'April 2025 — Present',
-    description: 'Immersive 3D tourism explorer & booking engine for 80+ destinations across Pakistan',
-    problemGoal: 'Traditional travel booking directories present destination data in static text lists, leading to low user engagement and poor visual exploration.',
-    whatIBuilt: 'Built an interactive galaxy-themed 3D web application with force-directed cluster graphs, 3D-to-2D UI tracking cards, and real-time multi-axis search.',
+    description: 'Interactive 3D Tourism Explorer & Booking Engine for 80+ destinations across Pakistan',
+    problemGoal: 'Flat, static travel directories suffer from high drop-off rates because visitors cannot visualize experiences before booking.',
+    whatIBuilt: 'Built an interactive galaxy-themed 3D force-directed node graph replacing static text lists with engaging visual exploration.',
     challenge: {
       paragraphs: [
-        'Clustering 80+ destinations into 6 tourism hubs in 3D space without visual overlap required custom D3 force physics tuning and real-time 3D camera projection.'
+        'Why It Matters: Increasing user engagement and session duration required custom 3D force physics and real-time screen coordinate projection.'
       ],
       bullets: [
-        'Dynamic camera flying to destination nodes on search input',
+        'Dynamic camera auto-flying to destination nodes on search input',
         'Real-time 3D-to-2D screen coordinate projection for floating package cards',
-        'Multi-axis filtering (province, budget, trip duration, group size)'
+        'Multi-axis filter matrix (province, budget bracket, trip duration, group size)'
       ]
     },
     solution: {
       paragraphs: [
-        'Combined React 19, Three.js, and D3 force physics to deliver a futuristic frosted-glass travel discovery portal with instant filtering and responsive mobile drawer UI.'
+        'The Solution Engineered: Combined React 19, Three.js, and D3 force physics to deliver a frosted-glass travel discovery portal with responsive mobile bottom-sheet drawers.'
       ],
       bullets: [
-        'Custom D3 force-directed 3D hub network',
-        'Floating card overlays tracking 3D node movement',
+        'Custom D3 force-directed 3D hub graph network',
+        'Floating card overlays tracking 3D node movement in real-time',
         'Frosted glass design system with responsive mobile carousels'
       ]
     },
     keyFeatures: [
       '🌌 Interactive 3D Force Graph: 6 galactic hubs & 80+ destination nodes with glow shaders',
-      '🔍 Auto-Fly Search Engine: Camera smoothly transitions to matching destination as user types',
+      '🔍 Auto-Fly Search Engine: Smooth camera flying transitions to matching destination as user types',
       '🎯 Multi-Axis Filter Matrix: Real-time filtering by budget bracket, duration, and trip category',
       '📱 Mobile-First Responsive UI: Bottom sheet filter drawer & gesture carousel for mobile screens'
     ],
@@ -91,7 +91,7 @@ export const projects = [
     links: { live: 'https://ms835857.github.io/z-tour/', github: 'https://github.com/ms835857/z-tour' }
   },
   {
-    title: 'GOLD Algorithmic Trading Bot',
+    title: 'GOLD Algorithmic Execution Engine',
     domainCategory: 'dev',
     projectType: 'personal projects',
     category: 'personal projects',
@@ -102,21 +102,21 @@ export const projects = [
     badge: 'Ongoing',
     role: 'Algorithm Engineer',
     timeline: '6+ Months',
-    description: 'Python automated trading system for XAUUSD (Gold) with automated risk management',
-    problemGoal: 'Trading Gold (XAUUSD) involves intense macroeconomic news spikes and extreme leverage risks that trigger frequent capital losses for manual traders.',
-    whatIBuilt: 'Developed an automated Python trading engine integrated with MetaTrader 5 that executes data-backed momentum strategies with automated stop-loss protection.',
+    description: 'Automated Quantitative Execution System for XAUUSD (Gold) with dynamic risk controls',
+    problemGoal: 'Gold markets experience extreme news-driven price spikes that routinely liquidate unmanaged trading accounts.',
+    whatIBuilt: 'Developed a data-driven Python trading bot integrated with MetaTrader 5 API to capture intraday momentum breakouts.',
     challenge: {
       paragraphs: [
-        'Gold prices experience sudden liquidity spikes around market opens and news events. Managing risk required strict automated execution.'
+        'Why It Matters: Eliminates panic trading and protects capital through algorithmic momentum tracking and hardcoded risk rules.'
       ]
     },
     solution: {
       paragraphs: [
-        'Automated trade entry and position sizing using quantitative indicators, eliminating human emotional interference and ensuring strict stop-loss adherence.'
+        'The Solution Engineered: Automated position sizing and ATR-based dynamic stop-loss adjustments to shield capital against unexpected market slippage.'
       ]
     },
     keyFeatures: [
-      '📈 Automated Strategy Execution: Objective algorithm monitors volume & key breakout levels',
+      '📈 Quantitative Breakout Strategy: Objective algorithm monitors volume & breakout levels',
       '🛡️ Dynamic Stop-Loss & Take-Profit: Real-time risk adjustments based on ATR volatility',
       '🔗 MetaTrader 5 Native Integration: Direct API connection for lightning-fast execution'
     ],
@@ -124,7 +124,7 @@ export const projects = [
     links: { live: '', github: '' }
   },
   {
-    title: 'Anime & Cinema Streaming Platform',
+    title: 'Anime & Cinema Streaming Dashboard',
     domainCategory: 'dev',
     projectType: 'university projects',
     category: 'university projects',
@@ -135,21 +135,21 @@ export const projects = [
     ],
     role: 'Frontend Developer',
     timeline: '2 Months',
-    description: 'Modern SPA streaming dashboard with real-time TMDB integration & user watchlists',
-    problemGoal: 'Legacy multi-page movie directory PHP applications suffer from slow page reloads and outdated visual presentation.',
-    whatIBuilt: 'Migrated static PHP infrastructure into a high-performance React Single-Page Application (SPA) with live API metadata & Firebase watchlist sync.',
+    description: 'High-Throughput Media SPA & Watchlist Manager with live TMDB integration',
+    problemGoal: 'Legacy multi-page media sites frustrate users with constant page reloads and clunky interfaces.',
+    whatIBuilt: 'Migrated static PHP server infrastructure into a responsive, high-speed Single-Page Application (SPA) with Firebase watchlist sync.',
     challenge: {
       paragraphs: [
-        'Overhauling server-side PHP pages into a dynamic client-side SPA required clean state management and fast asset delivery.'
+        'Why It Matters: Transforming server-side page reloads into an instant client-side SPA improves user retention and session length.'
       ]
     },
     solution: {
       paragraphs: [
-        'Engineered a glassmorphic streaming UI integrating TMDB API endpoints for real-time trending titles, detailed cast info, and instant video previews.'
+        'The Solution Engineered: Built a glassmorphic dashboard consuming live TMDB API metadata for real-time trending titles and Firebase cross-device watchlist sync.'
       ]
     },
     keyFeatures: [
-      '🎬 Live TMDB Metadata Integration: Real-time search, movie trailers, and detailed cast breakdown',
+      '🎬 Live TMDB Metadata Integration: Real-time search, movie trailers, and cast breakdowns',
       '🔥 Firebase Watchlist Sync: User account watchlists synced seamlessly across devices',
       '✨ Glassmorphic UI/UX: Modern dark aesthetic with smooth category transitions'
     ],

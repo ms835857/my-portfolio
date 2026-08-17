@@ -59,13 +59,13 @@ const Contact = () => {
   return (
     <div className="contact" ref={containerRef}>
       <header className="cta-section-header" ref={titleRef} style={{ marginBottom: '30px' }}>
-        <span className="hero-badge-tag">Start A Project</span>
-        <h2 className="h2 article-title" style={{ fontSize: '2rem', marginTop: '10px' }}>
-          Let’s build something that actually delivers results
+        <span className="hero-badge-tag">LET'S WORK TOGETHER</span>
+        <h2 className="h2 article-title" style={{ fontSize: '2.1rem', marginTop: '10px', lineHeight: '1.25' }}>
+          Let’s Build Something That Actually Delivers Results.
         </h2>
-        <p style={{ color: 'var(--light-gray)', fontSize: '1rem', lineHeight: '1.6', marginTop: '10px' }}>
-          Have a SaaS MVP, full stack web application, or automation engine to build? 
-          Get in touch directly and let’s discuss how to bring your product to life.
+        <p style={{ color: 'var(--light-gray)', fontSize: '1.05rem', lineHeight: '1.65', marginTop: '12px' }}>
+          Have a critical web application, SaaS platform, or automated system to build? 
+          Stop risking time on generic coders. Let’s discuss your vision and build a product worth paying for.
         </p>
       </header>
 
@@ -77,11 +77,11 @@ const Contact = () => {
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 20px', background: 'rgba(255, 255, 255, 0.05)', border: '1px solid var(--jet)', borderRadius: '12px', color: 'var(--white-2)', textDecoration: 'none', fontWeight: '600', transition: 'all 0.3s ease' }}
         >
           <ion-icon name="mail-outline" style={{ fontSize: '20px', color: 'var(--orange-yellow-crayola)' }}></ion-icon>
-          <span>Email Me Direct</span>
+          <span>Schedule A Technical Call</span>
         </a>
 
         <a 
-          href="https://linkedin.com" 
+          href="https://www.linkedin.com/in/muhammad-saad-webdev/" 
           target="_blank" 
           rel="noopener noreferrer"
           className="cta-action-btn"
@@ -99,12 +99,12 @@ const Contact = () => {
           style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px', padding: '14px 20px', background: 'rgba(37, 211, 102, 0.15)', border: '1px solid rgba(37, 211, 102, 0.3)', borderRadius: '12px', color: '#25D366', textDecoration: 'none', fontWeight: '600', transition: 'all 0.3s ease' }}
         >
           <ion-icon name="logo-whatsapp" style={{ fontSize: '20px' }}></ion-icon>
-          <span>WhatsApp Chat</span>
+          <span>Instant WhatsApp Inquiry</span>
         </a>
       </div>
 
       <div className="contact-form" ref={formRef}>
-        <h3 className="h3 form-title">Send A Direct Message</h3>
+        <h3 className="h3 form-title">Send A Direct Inquiry</h3>
         <form className="form" onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <input
@@ -129,14 +129,14 @@ const Contact = () => {
           <textarea
             name="message"
             className="form-input"
-            placeholder="Tell me about your project, timeline, and goals..."
+            placeholder="Tell me about your project vision, timeline, and goals..."
             required
             value={form.message}
             onChange={handleChange}
           ></textarea>
           <button className="form-btn" type="submit" disabled={!isValid} style={{ width: '100%', justifyContent: 'center' }}>
             <ion-icon name="paper-plane-outline"></ion-icon>
-            <span>Send Message</span>
+            <span>Send Direct Message</span>
           </button>
         </form>
       </div>

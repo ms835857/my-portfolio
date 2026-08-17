@@ -125,13 +125,13 @@ const Sidebar = ({ isProjectMode, projects, activeProjectIndex, onProjectSelect,
             <div className="separator"></div>
             <ul className="social-list">
               <li className="social-item">
-                <a href="#" className="social-link"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="https://www.linkedin.com/in/muhammad-saad-webdev/" target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn"><ion-icon name="logo-linkedin"></ion-icon></a>
               </li>
               <li className="social-item">
-                <a href="#" className="social-link"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="https://github.com/ms835857" target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub"><ion-icon name="logo-github"></ion-icon></a>
               </li>
               <li className="social-item">
-                <a href="#" className="social-link"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="https://wa.me/923267671152" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp"><ion-icon name="logo-whatsapp"></ion-icon></a>
               </li>
             </ul>
           </>

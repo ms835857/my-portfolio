@@ -57,32 +57,32 @@ const About = ({ activeDomain = 'all' }) => {
 
   const services = [
     {
-      title: 'Scalable Web Applications',
-      text: 'Fast, responsive, and conversion-optimized web applications built with React and Next.js for high performance and seamless user retention.',
-      icon: './assets/images/icon-dev.svg',
-      category: 'dev'
-    },
-    {
-      title: 'SaaS & MVP Development',
-      text: 'Transforming software concepts into market-ready SaaS MVPs for startups—engineered for speed, clean architecture, and rapid deployment.',
+      title: 'SaaS & MVP Engineering',
+      text: 'Transform complex concepts into launch-ready web platforms. Built with Next.js and .NET for rapid deployment, high performance, and friction-free user onboarding.',
       icon: './assets/images/icon-design.svg',
       category: 'dev'
     },
     {
-      title: 'Enterprise Backend Systems',
-      text: 'High-throughput REST APIs, microservices, and secure database architectures powered by enterprise .NET and Python engines.',
+      title: 'High-Conversion Frontends',
+      text: 'Sub-second load times, responsive UI, and optimized conversion paths engineered with React and Next.js to turn cold visitors into active, paying customers.',
       icon: './assets/images/icon-dev.svg',
       category: 'dev'
     },
     {
-      title: 'AI & Automation Integration',
-      text: 'Streamlining operations and reducing manual effort with custom AI model integrations, automated trading bots, and real-time data scripts.',
+      title: 'Enterprise Backend & API Architecture',
+      text: 'Secure, scalable REST APIs and microservices powered by .NET and Python. Designed for 99.9% uptime, data integrity, and high-concurrency workloads.',
+      icon: './assets/images/icon-dev.svg',
+      category: 'dev'
+    },
+    {
+      title: 'Workflow & AI Automation',
+      text: 'Eliminate expensive manual operations. I build custom AI integrations, real-time data pipelines, and automated trading algorithms that execute with microsecond precision.',
       icon: './assets/images/icon-app.svg',
       category: 'dev'
     },
     {
-      title: 'Growth & Digital Strategy',
-      text: 'Leveraging 5 years of sales and marketing strategy to align technical architecture with customer acquisition and business growth.',
+      title: 'Commercial & Growth Strategy',
+      text: 'Leveraging 5 years of sales and marketing strategy to align technical architecture with customer acquisition, lower retention costs, and business growth.',
       icon: './assets/images/icon-app.svg',
       category: 'sales'
     }
@@ -94,19 +94,19 @@ const About = ({ activeDomain = 'all' }) => {
 
   const whyWorkWithMe = [
     {
-      title: 'Sales + Developer Mindset',
-      badge: '5+ Years Experience',
-      text: 'With 5 years in sales & marketing, I don\'t just write code—I build software designed to convert visitors, retain users, and drive revenue.'
+      title: 'Commercial + Engineering Mindset',
+      badge: '5+ Years Growth Experience',
+      text: '5 years in sales and marketing means I write code designed to hit your business milestones, lower acquisition costs, and boost conversion—not just pass unit tests.'
     },
     {
-      title: 'Performance & Business Outcomes',
-      badge: 'Client ROI Focused',
-      text: 'I measure technical success in business terms: fast load times, system uptime, sub-second API speeds, and measurable user conversion.'
+      title: 'Obsessed With Business Outcomes',
+      badge: 'ROI First',
+      text: 'I measure software quality by commercial metrics: sub-second API latency, 99.9% uptime, reduced server overhead, and frictionless user onboarding.'
     },
     {
-      title: 'Deep User Behavior Understanding',
-      badge: 'Conversion UX',
-      text: 'Combining intuitive design with clean full-stack architecture so your users experience frictionless, engaging digital products.'
+      title: 'Product-Level Full Stack Autonomy',
+      badge: 'Zero Hand-Holding',
+      text: 'From architectural design to database optimization, frontend engineering, and deployment pipelines, I take complete ownership so you can focus on scaling.'
     }
   ];
 
@@ -119,40 +119,39 @@ const About = ({ activeDomain = 'all' }) => {
     <div className="about" ref={containerRef}>
       {/* 1. HERO SECTION */}
       <header className="hero-landing" ref={heroRef}>
-        <div className="hero-badge-tag">Full Stack Developer & Technical Partner</div>
+        <div className="hero-badge-tag">FULL STACK ENGINEER & TECHNICAL PARTNER</div>
         <h1 className="h1 hero-main-title">
-          I Build Scalable Web Apps & Automated Systems That Drive Real Growth
+          I Build High-Performance Web Apps & Automated Systems That Turn Traffic Into Revenue
         </h1>
         <p className="hero-subheadline">
-          Full Stack Engineer specializing in <strong>React, Next.js, .NET, and Python</strong>. 
-          Combining 5 years of sales & marketing expertise with high-performance software engineering to turn your vision into market-ready products.
+          <strong>React. Next.js. .NET. Python.</strong> I pair enterprise-grade software engineering with 5 years of sales and marketing strategy to build software that scales, converts, and delivers measurable business ROI.
         </p>
         <div className="hero-cta-group">
           <button className="btn-hero-primary" onClick={() => scrollToSection('portfolio')}>
             <ion-icon name="briefcase-outline"></ion-icon>
-            <span>View Case Studies</span>
+            <span>Explore Case Studies →</span>
           </button>
           <button className="btn-hero-secondary" onClick={() => scrollToSection('contact')}>
             <ion-icon name="paper-plane-outline"></ion-icon>
-            <span>Hire Me</span>
+            <span>Book A Technical Consult</span>
           </button>
         </div>
       </header>
 
       {/* 2. ABOUT / INTRO SECTION */}
       <div className="about-intro-block" ref={textRef} style={{ marginBottom: '40px' }}>
-        <h3 className="h3 service-title">About Me</h3>
+        <h3 className="h3 service-title">The Difference</h3>
         <p className="service-item-text" style={{ fontSize: '1.05rem', color: 'var(--light-gray)', lineHeight: '1.75' }}>
-          I am a Full Stack Developer and Technical Partner who bridges the gap between software engineering and revenue growth. 
-          With a core stack in <strong>React, Next.js, .NET, and Python</strong> backed by 5 years of hands-on experience in sales and marketing, 
-          I don't just write code—I engineer conversion-focused digital products. 
-          Whether you are launching a new SaaS MVP, scaling enterprise backend APIs, or automating complex workflows, I build fast, secure, and intuitive systems designed to deliver measurable business impact.
+          Most developers build for code execution. <strong>I build for business growth.</strong>
+        </p>
+        <p className="service-item-text" style={{ fontSize: '1rem', color: 'var(--light-gray-70)', lineHeight: '1.7', marginTop: '12px' }}>
+          With a technical foundation in <strong>React, Next.js, .NET, and Python</strong> backed by 5 years in revenue-generating sales and marketing roles, I bridge the gap between engineering precision and commercial success. Whether you are launching a high-stakes SaaS MVP, scaling enterprise APIs, or automating mission-critical workflows, I build resilient, fast, and conversion-optimized digital products that give your company an unfair market advantage.
         </p>
       </div>
 
-      {/* 2. WHAT I DO (SERVICES) */}
+      {/* 3. ENGINEERED SOLUTIONS */}
       <div className="service" ref={servicesRef}>
-        <h3 className="h3 service-title">What I Do</h3>
+        <h3 className="h3 service-title">Engineered Solutions</h3>
         <ul className="service-list">
           {filteredServices.map((service, index) => (
             <li key={index} className="service-item">
@@ -168,7 +167,7 @@ const About = ({ activeDomain = 'all' }) => {
         </ul>
       </div>
 
-      {/* 3. TRUST & AUTHORITY ("WHY WORK WITH ME") */}
+      {/* 4. WHY WORK WITH ME */}
       <div className="why-work-with-me" ref={whyWorkRef} style={{ marginTop: '40px' }}>
         <h3 className="h3 service-title">Why Work With Me</h3>
         <ul className="why-list" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', padding: 0 }}>
