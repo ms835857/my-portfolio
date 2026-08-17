@@ -97,26 +97,6 @@ const Sidebar = ({ isProjectMode, projects, activeProjectIndex, onProjectSelect,
                 <a href="tel:+923267671152" className="contact-link">+92 326 7671152</a>
               </div>
             </li>
-
-            <li className="contact-item">
-              <div className="icon-box">
-                <ion-icon name="calendar-outline"></ion-icon>
-              </div>
-              <div className="contact-info">
-                <p className="contact-title">Birthday</p>
-                <time dateTime="2003-03-25">March 25, 2003</time>
-              </div>
-            </li>
-
-            <li className="contact-item">
-              <div className="icon-box">
-                <ion-icon name="location-outline"></ion-icon>
-              </div>
-              <div className="contact-info">
-                <p className="contact-title">Location</p>
-                <address>E11/2, Islamabad</address>
-              </div>
-            </li>
           </ul>
         )}
 
