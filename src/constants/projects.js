@@ -43,7 +43,7 @@ export const projects = [
       '📊 5+ Year Backtesting Engine: Quantitative backtesting across multi-year historical tick data'
     ],
     techStack: ['Python', 'React', 'MQL5 / .NET', 'WebSockets', 'Pandas'],
-    links: { live: '', github: 'https://github.com/ms835857/ustec-bot' }
+    links: { live: '', github: 'https://github.com/ms835857/USTEC-Bot-Multithread-Architecture' }
   },
   {
     title: 'Z-Tour 3D Tourism Discovery Platform',
